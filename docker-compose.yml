@@ -3,6 +3,7 @@ version: '3.8'
 services:
   web:
     build: ./flask/services/web
+    restart: always
     command: gunicorn --bind 0.0.0.0:5000 manage:app
     volumes:
       - ./flask/services/web/:/usr/src/app/
@@ -13,6 +14,7 @@ services:
   
   nginx:
     build: ./nginx
+    restart: always
     ports:
       - 80:80
     depends_on:
