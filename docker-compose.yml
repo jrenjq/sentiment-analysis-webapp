@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./flask/services/web
+    command: gunicorn --bind 0.0.0.0:5000 manage:app
+    volumes:
+      - ./flask/services/web/:/usr/src/app/
+    ports:
+      - 5001:5000
+    env_file:
+      - ./.env.dev
