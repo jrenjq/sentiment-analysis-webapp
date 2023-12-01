@@ -57,15 +57,15 @@ function App() {
         {
           hasResults ? 
           <>
-            <div className="w-1/2 flex flex-row justify-between mt-12">
-              <h1> <span className="text-7xl">😄</span> <span className="text-5xl">{(results.positive * 100).toFixed(2)}<span className="text-5xl text-gray-500"> %</span> </span> </h1>
-              <h1> <span className="text-7xl">😐</span> <span className="text-5xl">{(results.neutral  * 100).toFixed(2)}<span className="text-5xl text-gray-500"> %</span> </span> </h1>
-              <h1> <span className="text-7xl">😒</span> <span className="text-5xl">{(results.negative * 100).toFixed(2)}<span className="text-5xl text-gray-500"> %</span> </span> </h1>
+            <div className="xl:w-1/2 flex flex-col xl:flex-row justify-between mt-8 xl:mt-12">
+              <h1 className="mt-4 xl:mt-0"> <span className="text-5xl xl:text-5xl">😄</span> <span className="text-3xl xl:text-5xl">{(results.positive * 100).toFixed(2)}<span className="text-3xl text-gray-500 xl:text-5xl"> %</span> </span> </h1>
+              <h1 className="mt-4 xl:mt-0"> <span className="text-5xl xl:text-5xl">😐</span> <span className="text-3xl xl:text-5xl">{(results.neutral  * 100).toFixed(2)}<span className="text-3xl text-gray-500 xl:text-5xl"> %</span> </span> </h1>
+              <h1 className="mt-4 xl:mt-0"> <span className="text-5xl xl:text-5xl">😒</span> <span className="text-3xl xl:text-5xl">{(results.negative * 100).toFixed(2)}<span className="text-3xl text-gray-500 xl:text-5xl"> %</span> </span> </h1>
             </div>
-            <div className="w-1/2 mt-8">
-              <h1> <span className="text-7xl">⚖️</span> <span className="text-5xl">{((results.compound + 1) * 50).toFixed(2)} <span className="text-5xl text-gray-500"> %</span></span> </h1>
+            <div className="xl:w-1/2 mt-8">
+              <h1> <span className="text-5xl xl:text-5xl">⚖️</span> <span className="text-3xl xl:text-5xl">{((results.compound + 1) * 50).toFixed(2)} <span className="text-3xl text-gray-500 xl:text-5xl"> %</span></span> </h1>
             </div>
-            <small className="w-1/2 mt-12 text-gray-500">😄: positive, 😐: neutral, 😒: negative, ⚖️: aggregated score</small>
+            <small className="xl:w-1/2 mt-12 text-gray-500">😄: positive, 😐: neutral, 😒: negative, ⚖️: aggregated score</small>
           </> :
           <></>
         }
