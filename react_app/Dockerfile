@@ -3,12 +3,10 @@ ENV NODE_ENV development
 # Add a work directory
 WORKDIR /app
 # Cache and Install dependencies
-COPY package.json .
-COPY package-lock.json .
-RUN npm install --omit=dev
-# Copy app files
 COPY . .
+RUN npm run build
+RUN npm install -g serve
 # Expose port
 EXPOSE 3000
 # Start the app
-CMD [ "npm", "start" ]
+CMD [ "serve", "-s", "build" ]
