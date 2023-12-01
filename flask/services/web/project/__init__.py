@@ -19,7 +19,8 @@ def get_sentiment():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
         json = request.get_json()
-        return json["ping"]
+        given_text = json["text"]
+        return given_text
     else:
         return 'Content-Type not supported!'
 
