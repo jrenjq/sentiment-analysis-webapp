@@ -4,6 +4,7 @@ ENV NODE_ENV development
 WORKDIR /app
 # Cache and Install dependencies
 COPY . .
+RUN npm install react-scripts
 RUN npm run build
 RUN npm install -g serve
 # Expose port
