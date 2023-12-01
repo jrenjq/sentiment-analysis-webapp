@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  web:
+  flask:
     build: ./flask/services/web
     restart: always
     command: gunicorn --bind 0.0.0.0:5000 manage:app
@@ -12,10 +12,19 @@ services:
     env_file:
       - ./.env.dev
   
+  react:
+    build:
+      context: ./react_app
+    volumes:
+      - ./react_app/src:/app/src
+    expose:
+      - 3000
+  
   nginx:
     build: ./nginx
     restart: always
     ports:
       - 80:80
     depends_on:
-      - web
+      - flask
+      - react
